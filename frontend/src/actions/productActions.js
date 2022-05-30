@@ -76,6 +76,12 @@ export const listProductDetails = (id) => async (dispatch) => {
     })
   }
 }
+export const listAProductDetails = (id) => async (dispatch) => {
+  const { data } = await axios.get(
+    `https://api.rainforestapi.com/request?api_key=92B69377AF094C4581066C2C3F76F40E&type=product&asin=${id}&amazon_domain=amazon.com`
+  )
+  return await data
+}
 
 export const deleteProduct = (id) => async (dispatch, getState) => {
   try {

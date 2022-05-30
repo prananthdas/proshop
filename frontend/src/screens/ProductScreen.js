@@ -7,7 +7,7 @@ import Message from '../components/Message'
 import Loader from '../components/Loader'
 import Meta from '../components/Meta'
 import {
-  listProductDetails,
+  listAProductDetails,
   createProductReview,
 } from '../actions/productActions'
 import { PRODUCT_CREATE_REVIEW_RESET } from '../constants/productConstants'
@@ -38,7 +38,10 @@ const ProductScreen = ({ history, match }) => {
       setComment('')
       dispatch({ type: PRODUCT_CREATE_REVIEW_RESET })
     }
-    dispatch(listProductDetails(match.params.id))
+    dispatch(listAProductDetails(match.params.id)) 
+
+    
+    console.log(product)
   }, [dispatch, match, successProductReview])
 
   const addToCartHandler = () => {

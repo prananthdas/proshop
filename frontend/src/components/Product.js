@@ -7,12 +7,12 @@ const Product = ({ product }) => {
   console.log(product?.price?.value);
   return (
     <Card className='my-3 p-3 rounded'>
-      <Link to={`/product/${product.position}`}>
+      <Link to={`/product/${product.asin}`}>
         <Card.Img src={product.image} variant='top' />
       </Link>
 
       <Card.Body>
-        <Link to={`/product/${product.position}`}>
+        <Link to={`/product/${product.asin}`}>
           <Card.Title as='div'>
             <strong>{product.title}</strong>
           </Card.Title>
