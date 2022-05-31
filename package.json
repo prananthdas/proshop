@@ -26,6 +26,7 @@
     "mongoose": "^5.10.6",
     "morgan": "^1.10.0",
     "multer": "^1.4.2",
+    "react-simple-image-slider": "^2.4.1",
     "react-spinner-animated": "^3.1.1"
   },
   "devDependencies": {

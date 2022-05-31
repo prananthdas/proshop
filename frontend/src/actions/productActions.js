@@ -1,3 +1,4 @@
+
 import axios from 'axios'
 import {
   PRODUCT_LIST_REQUEST,
@@ -26,7 +27,7 @@ import {
 
 export async function listAProducts(keyword = '', pageNumber = '') {
   const { data } = await axios.get(
-    `https://api.rainforestapi.com/request?api_key=92B69377AF094C4581066C2C3F76F40E&type=search&amazon_domain=amazon.in&search_term=${keyword}&sort_by=price_high_to_low`
+    `https://api.rainforestapi.com/request?api_key=B6CF9525E9424A96B00411167DB299B2&type=search&amazon_domain=amazon.in&search_term=${keyword}&sort_by=price_high_to_low`
   )
   return await data
 }
@@ -78,8 +79,10 @@ export const listProductDetails = (id) => async (dispatch) => {
 }
 export const listAProductDetails = (id) => async (dispatch) => {
   const { data } = await axios.get(
-    `https://api.rainforestapi.com/request?api_key=92B69377AF094C4581066C2C3F76F40E&type=product&asin=${id}&amazon_domain=amazon.com`
-  )
+    `https://api.rainforestapi.com/request?api_key=B6CF9525E9424A96B00411167DB299B2&type=product&asin=${id}&amazon_domain=amazon.in`
+  ) 
+
+console.log(data)
   return await data
 }
 

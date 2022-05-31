@@ -6,6 +6,7 @@ import Rating from '../components/Rating'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
 import Meta from '../components/Meta'
+import { listAProducts } from '../actions/productActions'
 import {
   listAProductDetails,
   createProductReview,
@@ -16,7 +17,7 @@ const ProductScreen = ({ history, match }) => {
   const [qty, setQty] = useState(1)
   const [rating, setRating] = useState(0)
   const [comment, setComment] = useState('')
-
+  const [pro,setPro]=useState({})
   const dispatch = useDispatch()
 
   const productDetails = useSelector((state) => state.productDetails)
@@ -30,7 +31,7 @@ const ProductScreen = ({ history, match }) => {
     success: successProductReview,
     error: errorProductReview,
   } = productReviewCreate
-
+       
   useEffect(() => {
     if (successProductReview) {
       alert('Review Submitted!')
@@ -38,10 +39,10 @@ const ProductScreen = ({ history, match }) => {
       setComment('')
       dispatch({ type: PRODUCT_CREATE_REVIEW_RESET })
     }
-    dispatch(listAProductDetails(match.params.id)) 
-
-    
-    console.log(product)
+     dispatch(listAProductDetails(match.params.id)) 
+    //    listAProductDetails(match.params.id).then((d)=>console.log(d))
+     listAProductDetails(match.params.id)
+    //  console.log(product)
   }, [dispatch, match, successProductReview])
 
   const addToCartHandler = () => {
@@ -60,6 +61,7 @@ const ProductScreen = ({ history, match }) => {
 
   return (
     <>
+   
       <Link className='btn btn-light my-3' to='/'>
         Go Back
       </Link>
@@ -85,7 +87,7 @@ const ProductScreen = ({ history, match }) => {
                     text={`${product.numReviews} reviews`}
                   />
                 </ListGroup.Item>
-                <ListGroup.Item>Price: ${product.price}</ListGroup.Item>
+                <ListGroup.Item>Price: ₹{product.price}</ListGroup.Item>
                 <ListGroup.Item>
                   Description: {product.description}
                 </ListGroup.Item>
@@ -98,7 +100,7 @@ const ProductScreen = ({ history, match }) => {
                     <Row>
                       <Col>Price:</Col>
                       <Col>
-                        <strong>${product.price}</strong>
+                        <strong> ₹{product.price}</strong>
                       </Col>
                     </Row>
                   </ListGroup.Item>
@@ -209,7 +211,7 @@ const ProductScreen = ({ history, match }) => {
         </>
       )}
     </>
-  )
-}
+  )         
+} 
 
 export default ProductScreen

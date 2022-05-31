@@ -37,15 +37,16 @@ const RegisterScreen = ({ location, history }) => {
   }
 
   return (
-    <FormContainer>
+    <FormContainer className="form">
       <h1>Sign Up</h1>
       {message && <Message variant='danger'>{message}</Message>}
       {error && <Message variant='danger'>{error}</Message>}
       {loading && <Loader />}
       <Form onSubmit={submitHandler}>
-        <Form.Group controlId='name'>
+        <Form.Group controlId='name' >
           <Form.Label>Name</Form.Label>
           <Form.Control
+          className='name'
             type='name'
             placeholder='Enter name'
             value={name}
@@ -56,6 +57,7 @@ const RegisterScreen = ({ location, history }) => {
         <Form.Group controlId='email'>
           <Form.Label>Email Address</Form.Label>
           <Form.Control
+           className='name'
             type='email'
             placeholder='Enter email'
             value={email}
@@ -66,6 +68,7 @@ const RegisterScreen = ({ location, history }) => {
         <Form.Group controlId='password'>
           <Form.Label>Password Address</Form.Label>
           <Form.Control
+           className='name'
             type='password'
             placeholder='Enter password'
             value={password}
@@ -76,6 +79,7 @@ const RegisterScreen = ({ location, history }) => {
         <Form.Group controlId='confirmPassword'>
           <Form.Label>Confirm Password</Form.Label>
           <Form.Control
+           className='name'
             type='password'
             placeholder='Confirm password'
             value={confirmPassword}
@@ -83,7 +87,7 @@ const RegisterScreen = ({ location, history }) => {
           ></Form.Control>
         </Form.Group>
 
-        <Button type='submit' variant='primary'>
+        <Button type='submit' variant='primary' className='buttom1'>
           Register
         </Button>
       </Form>
